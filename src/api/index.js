@@ -54,3 +54,19 @@ export const UpdatebyPut=(putUrl,name,email,phone)=>{
  
   );
 }
+
+export const Deletebydelete=(putUrl)=>{
+  return (
+    fetch(putUrl, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json))
+      .catch((err) => console.log(err))
+  
+   
+  
+   
+    );
+
+}

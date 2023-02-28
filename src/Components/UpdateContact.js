@@ -2,18 +2,28 @@ import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import "../index.css"
 import { UpdatebyPut } from "../api"
+
+// in this component we are going to update our contact details
+//  by clicking on the edit image it will route to this component which will show a form with our
+// previously filled details and once we make the changes to the contact and save the the form 
+// it will update the contact in our local state and redirect to the fetch Contact page
+
 const UpdateContact = ({ contact, onupdate }) => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [phone, setPhone] = useState("")
   const [contactList, setcontactList] = useState(contact)
+
+// use params is to get the id parameter from the path url
   const { id } = useParams()
   const navigate = useNavigate()
 
   useEffect(() => {
+    // once our component is loaded it will map through our array and when contact id matches it shows previously 
+    // filled details
     contactList.map((contact) => {
       if (contact.id.toString() === id) {
-        // console.log("where")
+      
         setName(contact.name)
         setEmail(contact.email)
         setPhone(contact.phone)
@@ -25,7 +35,8 @@ const UpdateContact = ({ contact, onupdate }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    // console.log(contacts)
+  //  in this once the changes are made we are going to update the contact and also we update our contact list 
+  // and will render the fetch contact with newly updated details
 
     const updatedContactList = contactList.map((contact) => {
       if (contact.id.toString() === id) {

@@ -4,6 +4,8 @@ import "../index.css"
 import { AddContacts } from "../api"
 import { v4 as uuidv4 } from "uuid"
 
+// in this function we will fill the form and send the data to onAddContact prop which will insert the newly added contact to
+// contactList and will route to fetchcontact list
 const AddContactForm = ({ onAddContact }) => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -17,9 +19,10 @@ const AddContactForm = ({ onAddContact }) => {
       email,
       phone,
     }
-
+  //  AddContacts function is delcared in api which sends a post request 
     AddContacts(contact)
       .then((data) => {
+        // using uuid package to generate a unique id to the contact whenever we generate a new contact
         data.id = uuidv4()
         onAddContact(data)
         navigate("/")

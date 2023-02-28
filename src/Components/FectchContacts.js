@@ -2,12 +2,14 @@
 import { Link } from "react-router-dom"
 import "../index.css"
 
-const FetchContact = ({ contacts,deleteContact }) => {
+// this component is fetched or rendered first when the project is started 
+// it is a simple component which gets contact list as prop and will iterate through array 
+// and display the contacts
+
+const FetchContact = ({ contacts }) => {
   const contactList= contacts
 
-  // if (!contacts || contacts.length === 0) {
-  //   return <div>No contacts found</div>;
-  // }
+
 
   return (
     <div>
