@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="App">
       {/* <h1>Hello</h1> */}
-      <ToastContainer />
+
       <Router>
         <Routes>
           <Route
@@ -44,7 +44,8 @@ function App() {
           <Route
             exact
             path="/add"
-            element={<AddContactForm onAddContact={addContact} />}
+            element={<AddContactForm onAddContact={addContact} 
+            />}
           />
           <Route
             exact
